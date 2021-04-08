@@ -1,0 +1,15 @@
+{
+  "name": "com.mactinite.globaleventsmanager",
+  "version": "0.0.1",
+  "displayName": "Global Events Manager",
+  "description": "An event manager for unity. Based on https://learn.unity.com/tutorial/create-a-simple-messaging-system-with-events",
+  "unity": "2020.3",
+  "dependencies": {
+    "com.mactinite.toolboxcommons": "0.0.1"
+  },
+  "author": {
+    "name": "Hunter MacDonald",
+    "url": "https://github.com/mactinite"
+  },
+  "hideInEditor": false
+}
