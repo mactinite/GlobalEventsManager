@@ -6,7 +6,6 @@ using mactinite.ToolboxCommons;
 
 namespace mactinite.GlobalEventsManager
 {
-
     public class GlobalEventsManager : MonoBehaviour
     {
 

@@ -9,9 +9,14 @@ namespace mactinite.GlobalEventsManager
 {
     public class ListenToGlobalEvent : MonoBehaviour
     {
-        public string eventName = "EventName";
+        public GlobalEvent gameEvent;
+
+        [BoxGroup("Headers")]
+        [InfoBox("Headers can be used to pass information to subscribers of GlobalEvents. You can select a header value here to be passed as a parameter to the subscribers of the UnityEvent. More headers can be accessed via code", InfoMessageType.None)]
         public string headerName = "Count";
+        [BoxGroup("Headers")]
         public HeaderType headerType = HeaderType.Float;
+
         public enum HeaderType
         {
             Int,
@@ -19,18 +24,22 @@ namespace mactinite.GlobalEventsManager
             String,
             Null,
         }
+        [BoxGroup("Headers")]
         [ShowIf("@headerType == HeaderType.Float")]
         public FloatUnityEvent OnTriggeredFloat = new FloatUnityEvent();
+        [BoxGroup("Headers")]
         [ShowIf("@headerType == HeaderType.Int")]
         public IntUnityEvent OnTriggeredInt = new IntUnityEvent();
+        [BoxGroup("Headers")]
         [ShowIf("@headerType == HeaderType.String")]
         public StringUnityEvent OnTriggeredString = new StringUnityEvent();
+        [BoxGroup("Headers")]
         [ShowIf("@headerType == HeaderType.Null")]
         public UnityEvent OnTriggered = new UnityEvent();
         // Start is called before the first frame update
         void Start()
         {
-            GlobalEventsManager.StartListening(eventName, EventTriggered);
+            GlobalEventsManager.StartListening(gameEvent.name, EventTriggered);
         }
         public void EventTriggered(GenericDictionary headers)
         {
