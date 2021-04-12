@@ -1,6 +1,6 @@
 {
   "name": "com.mactinite.globaleventsmanager",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "displayName": "Global Events Manager",
   "description": "An event manager for unity. Based on https://learn.unity.com/tutorial/create-a-simple-messaging-system-with-events",
   "unity": "2020.3",
