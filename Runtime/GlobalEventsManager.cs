@@ -88,25 +88,23 @@ namespace mactinite.GlobalEventsManager
 
         public static void TriggerEvent(string eventName)
         {
-            Action<GenericDictionary> thisEvent = null;
-            if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
-            {
-                if (instance.debugLogs)
-                    Debug.Log($"Triggering Event {eventName}");
-                if (thisEvent != null)
-                    thisEvent.Invoke(null);
-            }
+            TriggerEvent(eventName, null);
         }
 
         public static void TriggerEvent(string eventName, GenericDictionary headers)
         {
-            Action<GenericDictionary> thisEvent = null;
+            Action<GenericDictionary> thisEvent;
             if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
                 if (instance.debugLogs)
                     Debug.Log($"Triggering Event {eventName}");
                 if (thisEvent != null)
                     thisEvent.Invoke(headers);
+            }
+            else
+            {
+                //Add event to the Dictionary for the first time
+                instance.eventDictionary.Add(eventName, thisEvent);
             }
         }
     }
