@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using mactinite.ToolboxCommons;
 using UnityEngine;
 
 namespace mactinite.GlobalEventsManager
@@ -13,5 +15,25 @@ namespace mactinite.GlobalEventsManager
     public class GlobalEvent : ScriptableObject
     {
         /*Nothing... yet.*/
+        
+        public void TriggerEvent()
+        {
+            GlobalEventsManager.TriggerEvent(this.name);
+        }
+        
+        public void TriggerEvent(GenericDictionary headers)
+        {
+            GlobalEventsManager.TriggerEvent(this.name, headers);
+        }
+        
+        public void Listen(Action<GenericDictionary> listener)
+        {
+            GlobalEventsManager.StartListening(this.name, listener);
+        }
+        
+        public void StopListening(Action<GenericDictionary> listener)
+        {
+            GlobalEventsManager.StopListening(this.name, listener);
+        }
     }
 }
