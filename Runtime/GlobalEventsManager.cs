@@ -45,6 +45,14 @@ namespace mactinite.GlobalEventsManager
             }
         }
 
+        void Awake()
+        {
+            if (eventManager != null && eventManager != this)
+            {
+                DestroyImmediate(gameObject);
+            }
+        }
+        
         void Init()
         {
             if (eventDictionary == null)
