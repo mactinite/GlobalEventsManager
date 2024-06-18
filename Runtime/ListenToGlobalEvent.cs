@@ -36,8 +36,8 @@ namespace mactinite.GlobalEventsManager
         [BoxGroup("Headers")]
         [ShowIf("@headerType == HeaderType.Null")]
         public UnityEvent OnTriggered = new UnityEvent();
-        // Start is called before the first frame update
-        void Start()
+
+        void Awake()
         {
             GlobalEventsManager.StartListening(gameEvent.name, EventTriggered);
         }
